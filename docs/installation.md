@@ -1,31 +1,27 @@
-# Instalação
+# Instalacao
 
-## Opção 1: copiar a skill para um OpenClaw existente
+## Copiar para workspace OpenClaw
 
 ```bash
 cp -r skill/google-nano-banana-2 ~/.openclaw/workspace/skills/
 ```
 
-Depois, reinicie ou abra uma nova sessão do OpenClaw para carregar a skill.
+Reinicie ou abra uma nova sessao do OpenClaw para carregar a skill.
 
-## Opção 2: empacotar como `.skill`
-
-```bash
-python3 /usr/lib/node_modules/openclaw/skills/skill-creator/scripts/package_skill.py \
-  skill/google-nano-banana-2 \
-  ./dist
-```
-
-Isso gera um arquivo como:
+## Empacotar como .skill
 
 ```bash
-./dist/google-nano-banana-2.skill
+python3 "$(openclaw skills path)/skill-creator/scripts/package_skill.py" \
+  skill/google-nano-banana-2 ./dist
 ```
 
-Então instale no outro ambiente seguindo o método aceito por ele para skills locais ou empacotadas.
+Gera `./dist/google-nano-banana-2.skill` para distribuicao.
 
-## Estrutura esperada
-- `SKILL.md`
-- `scripts/google-nano-banana-2.py`
+## Estrutura da skill
 
-Não incluir tokens, chaves ou arquivos temporários.
+```
+google-nano-banana-2/
+├── SKILL.md
+└── scripts/
+    └── google-nano-banana-2.py
+```

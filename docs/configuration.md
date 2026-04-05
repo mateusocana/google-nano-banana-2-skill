@@ -1,43 +1,37 @@
-# Configuração
+# Configuracao
 
-## Variável obrigatória
-
-A skill usa a variável de ambiente:
+## Variavel obrigatoria
 
 ```bash
-GEMINI_API_KEY
+GEMINI_API_KEY=<sua-chave>
 ```
 
-Exemplo:
+Configure no ambiente do OpenClaw (config ou `.env`).
+
+## Modelo
+
+Padrao: `gemini-3.1-flash-image-preview`
+
+Override via variavel de ambiente:
 
 ```bash
-export GEMINI_API_KEY="SUA_CHAVE_AQUI"
+GOOGLE_NANO_BANANA_MODEL=outro-modelo
 ```
 
-## Modelo usado
+## Diretorio de saida
 
-Padrão:
+Padrao: `generated/google-nano-banana-2/` relativo ao workspace do OpenClaw.
+
+Override com `--outdir`:
 
 ```bash
-gemini-3.1-flash-image-preview
+python3 scripts/google-nano-banana-2.py --prompt "..." --outdir /custom/path
 ```
 
-Se a sua conta/projeto usar outro identificador aceito pela Google, ajuste a variável:
+## API base
+
+Override (raro):
 
 ```bash
-export GOOGLE_NANO_BANANA_MODEL="outro-modelo"
+GOOGLE_GEMINI_API_BASE=https://custom-endpoint.example.com
 ```
-
-## Saída padrão
-
-As imagens são salvas por padrão em:
-
-```bash
-/srv/obsidian-sync/openclaw/generated/google-nano-banana-2/
-```
-
-Isso facilita o envio automático da imagem no chat do OpenClaw.
-
-## Observações
-- A quota do projeto Google precisa estar liberada.
-- Se a API responder `429`, é limite/quota e não erro da skill.

@@ -9,7 +9,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 
 DEFAULT_MODEL = os.environ.get('GOOGLE_NANO_BANANA_MODEL', 'gemini-3.1-flash-image-preview')
 API_KEY = os.environ.get('GEMINI_API_KEY')
@@ -96,7 +96,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--prompt', required=True)
     ap.add_argument('--image', action='append', default=[])
-    ap.add_argument('--outdir', default='/srv/obsidian-sync/openclaw/generated/google-nano-banana-2')
+    default_outdir = os.path.join(os.environ.get('OPENCLAW_WORKSPACE', os.getcwd()), 'generated', 'google-nano-banana-2')
+    ap.add_argument('--outdir', default=default_outdir)
     ap.add_argument('--model', default=DEFAULT_MODEL)
     ap.add_argument('--retries', type=int, default=3)
     ap.add_argument('--retry-delay', type=float, default=2.5)
@@ -145,7 +146,7 @@ def main():
 
     outdir = pathlib.Path(args.outdir)
     outdir.mkdir(parents=True, exist_ok=True)
-    stamp = datetime.utcnow().strftime('%Y%m%d-%H%M%S')
+    stamp = datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
     saved = []
 
     candidates = body.get('candidates', [])

@@ -1,30 +1,32 @@
-# Google Nano Banana 2 Skill for OpenClaw
+# Google Nano Banana 2 — OpenClaw Skill
 
-Skill oficial-lizada no formato de workspace para usar a API oficial da Google com o modelo Nano Banana 2 (`gemini-3.1-flash-image-preview`).
-
-## O que tem aqui
-- `skill/google-nano-banana-2/` - skill OpenClaw pronta para copiar ou instalar
-- `docs/` - instalação, configuração e uso
-- sem tokens ou segredos no repositório
+Skill para geração e edição de imagens via API oficial Google Gemini (`gemini-3.1-flash-image-preview`).
 
 ## Requisitos
 - OpenClaw instalado
-- `GEMINI_API_KEY` configurada no ambiente do OpenClaw de destino
-- acesso ao Gemini API / Google AI Studio com quota ativa
+- `GEMINI_API_KEY` configurada no ambiente do OpenClaw
+- Quota ativa no Google AI Studio
 
-## Instalação rápida
+## Instalação
+
+Copie a skill para o workspace do OpenClaw:
+
 ```bash
 cp -r skill/google-nano-banana-2 ~/.openclaw/workspace/skills/
 ```
 
-Ou empacote para distribuição com o OpenClaw:
+Ou empacote para distribuição:
+
 ```bash
-python3 /usr/lib/node_modules/openclaw/skills/skill-creator/scripts/package_skill.py \
-  skill/google-nano-banana-2 \
-  ./dist
+python3 "$(openclaw skills path)/skill-creator/scripts/package_skill.py" \
+  skill/google-nano-banana-2 ./dist
 ```
 
-## Docs
-- [Instalação](docs/installation.md)
-- [Configuração](docs/configuration.md)
-- [Uso](docs/usage.md)
+## Uso
+
+Dentro do OpenClaw, peça para gerar ou editar imagens:
+
+- "gera uma imagem de um robô futurista"
+- "edita essa foto e deixa mais cinematográfica"
+
+A skill será ativada automaticamente pelo agente.
