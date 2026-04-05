@@ -25,4 +25,4 @@ python3 scripts/google-nano-banana-2.py \
 
 ## Resultado
 
-A imagem gerada e salva no diretorio de saida (padrao: `generated/google-nano-banana-2/` no workspace). O caminho e impresso em stdout para uso pelo agente.
+A imagem gerada é salva no diretório de saída padrão do workspace e enviada no chat do OpenClaw como anexo, sem legenda, quando o fluxo estiver usando essa skill.

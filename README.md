@@ -2,6 +2,12 @@
 
 Skill para geração e edição de imagens via API oficial Google Gemini (`gemini-3.1-flash-image-preview`).
 
+## O que tem aqui
+- `skill/google-nano-banana-2/` - skill OpenClaw pronta para copiar ou instalar
+- `docs/` - instalação, configuração e uso
+- padrão de envio no chat: imagem anexada sem legenda, salvo pedido explícito
+- sem tokens ou segredos no repositório
+
 ## Requisitos
 - OpenClaw instalado
 - `GEMINI_API_KEY` configurada no ambiente do OpenClaw
